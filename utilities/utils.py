@@ -1,8 +1,9 @@
 from openpyxl.reader.excel import load_workbook
-import numpy as np
 
-class utlis:
-    def read_data_from_excel(self,filename):
+
+class Utils:
+    @staticmethod
+    def read_dat_from_excel(self,filename):
         datalist = []
         workbook = load_workbook(filename)
         sheet = workbook['usercradentials.xlsx']
@@ -15,7 +16,3 @@ class utlis:
                 row.append(sheet.cell(row=i,column=j).value)
             datalist.append(row)
         return datalist
-
-
-
-

@@ -1,11 +1,13 @@
 import time
 
 import pytest
+from ddt import ddt, data
 from selenium.webdriver.common.by import By
-
+from utilities.utils import Utils
 
 @pytest.mark.usefixtures("setup")
-class TestLogin():
+class TestLogin:
+    @data((Utils.read_dat_from_excel()))
     def test_login(self):
         driver = self.driver
         driver.find_element(By.XPATH,"//input[@type='text']").send_keys("hp-amar")
